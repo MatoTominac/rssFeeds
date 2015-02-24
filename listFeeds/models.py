@@ -5,7 +5,7 @@ class Feed(models.Model):
     feed_url = models.CharField(max_length=255, unique=True)
     active = models.BooleanField(default=True)
     
-    def __unicode__(self):
+    def __str__(self):
         return self.feed_url
     
 
