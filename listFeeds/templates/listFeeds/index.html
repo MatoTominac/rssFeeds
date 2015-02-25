@@ -1,0 +1,17 @@
+{% if feeds %}
+    <ul>
+    {% for feed in feeds %}
+        <li>
+        	{{ feed.feed_url }}
+        	{% if feed.active %}
+        	<a href="{% url 'deactivate_feed' feed.id %}">Deactivate</a>
+        	{% else %}
+        	<a href="{% url 'activate_feed' feed.id %}">Activate</a>
+        	{% endif %}
+        
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no feeds in database.</p>
+{% endif %}
