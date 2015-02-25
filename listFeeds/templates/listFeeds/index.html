@@ -4,9 +4,9 @@
         <li>
         	{{ feed.feed_url }}
         	{% if feed.active %}
-        	<a href="{% url 'deactivate_feed' feed.id %}">Deactivate</a>
+        	<a href="{% url 'feeds:deactivate_feed' feed.id %}">Deactivate</a>
         	{% else %}
-        	<a href="{% url 'activate_feed' feed.id %}">Activate</a>
+        	<a href="{% url 'feeds:activate_feed' feed.id %}">Activate</a>
         	{% endif %}
         
         </li>
@@ -15,3 +15,9 @@
 {% else %}
     <p>There are no feeds in database.</p>
 {% endif %}
+
+<form action="{% url 'feeds:add' %}" method="post">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Add" />
+</form>

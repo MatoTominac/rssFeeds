@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'rssFeeds.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^feeds/', include('listFeeds.urls')),
     url(r'^$', views.index, name='index'),
+    url(r'^feeds/', include('listFeeds.urls', namespace='feeds')),
 )

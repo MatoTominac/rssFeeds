@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from django.utils.translation import ugettext as _
 
 class Feed(models.Model):
@@ -36,3 +37,10 @@ class WordStats(models.Model):
     
     class Meta:
         unique_together = ('stat_type', 'item_id')
+    
+
+class FeedForm(ModelForm):
+    class Meta:
+        model = Feed
+        fields = ['feed_url', 'active']
+    
